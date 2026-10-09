@@ -45,7 +45,7 @@ EXPOSE 4095
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
-  CMD bun -e "fetch('http://localhost:3000/api/health').then(r=>r.ok&&process.exit(0)).catch(()=>process.exit(1))"
+  CMD bun -e "fetch('http://localhost:4095/api/health').then(r=>r.ok&&process.exit(0)).catch(()=>process.exit(1))"
 
 # Start the server
 CMD ["bun", "server.ts"]
