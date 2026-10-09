@@ -1,8 +1,6 @@
 import { Glob } from "bun";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import { methods } from "../assets/colors/methods"
-import chalk from "chalk";
 
 type Handler = (req: Request, params?: Record<string, string>) => Promise<Response> | Response;
 
@@ -44,13 +42,9 @@ for await (const file of glob.scan({ cwd: __dirname })) {
         pattern: new URLPattern({ pathname: `/api${routePath}` }),
         handler,
       });
-
-      console.log(`${chalk[methods[method]](`${method}`)} /api${routePath}`)
     }
   }
 }
-
-console.log(chalk.dim(`------------------------------------`))
 
 export function matchRoute(req: Request) {
   const url = new URL(req.url);

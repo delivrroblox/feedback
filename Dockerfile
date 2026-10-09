@@ -1,4 +1,3 @@
-# Multi-stage Dockerfile for Bun + Fastify + React (Vite)
 
 # Stage 1: Dependencies
 FROM oven/bun:1-alpine AS deps
@@ -39,6 +38,7 @@ COPY --from=builder /app/dist ./dist
 # Copy server files
 COPY server.ts ./
 COPY src/server ./src/server
+COPY src/assets ./src/assets
 
 # Expose port
 EXPOSE 3000
