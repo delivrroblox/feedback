@@ -24,7 +24,7 @@ FROM oven/bun:1-alpine AS production
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV PORT=3000
+ENV PORT=4095
 ENV HOST=0.0.0.0
 
 # Copy package files for production install
@@ -41,7 +41,7 @@ COPY server.ts ./
 COPY src/server ./src/server
 
 # Expose port
-EXPOSE 3000
+EXPOSE 4095
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
