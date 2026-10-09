@@ -17,7 +17,6 @@ const server = Bun.serve({
   hostname: HOST,
   fetch: async (req: Request) => {
     const matched = matchRoute(req);
-    console.log(matched)
     if (matched) {
       try {
         return await matched.handler(req, matched.params as Record<string, string>);
@@ -49,5 +48,5 @@ const server = Bun.serve({
   },
 });
 
-console.log(`Bun HTTP server listening on http://${HOST}:${PORT}`);
+console.log(`Bun HTTP server listening on http://localhost:${PORT}`);
 export default server;
